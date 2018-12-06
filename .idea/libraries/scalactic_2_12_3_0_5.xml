@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="scalactic_2.12-3.0.5">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/ScalaTest/V3u05/scalactic_2.12-3.0.5.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/lib/ScalaTest/V3u05/scalactic_2.12-3.0.5-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib/ScalaTest/V3u05/scalactic_2.12-3.0.5-javadoc.jar!/" />
+    </SOURCES>
+    <jarDirectory url="jar://$PROJECT_DIR$/lib/ScalaTest/V3u05/scalactic_2.12-3.0.5-javadoc.jar!/" recursive="false" type="SOURCES" />
+  </library>
+</component>

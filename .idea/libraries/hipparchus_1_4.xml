@@ -1,0 +1,43 @@
+<component name="libraryTable">
+  <library name="hipparchus-1.4">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/Hipparchus/V1u4/hipparchus-clustering-1.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Hipparchus/V1u4/hipparchus-core-1.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Hipparchus/V1u4/hipparchus-fft-1.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Hipparchus/V1u4/hipparchus-filtering-1.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Hipparchus/V1u4/hipparchus-fitting-1.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Hipparchus/V1u4/hipparchus-geometry-1.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Hipparchus/V1u4/hipparchus-migration-1.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Hipparchus/V1u4/hipparchus-ode-1.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Hipparchus/V1u4/hipparchus-optim-1.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Hipparchus/V1u4/hipparchus-samples-1.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Hipparchus/V1u4/hipparchus-stat-1.4.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/lib/Hipparchus/V1u4/hipparchus-clustering-1.4-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Hipparchus/V1u4/hipparchus-core-1.4-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Hipparchus/V1u4/hipparchus-fft-1.4-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Hipparchus/V1u4/hipparchus-filtering-1.4-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Hipparchus/V1u4/hipparchus-fitting-1.4-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Hipparchus/V1u4/hipparchus-geometry-1.4-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Hipparchus/V1u4/hipparchus-migration-1.4-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Hipparchus/V1u4/hipparchus-ode-1.4-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Hipparchus/V1u4/hipparchus-optim-1.4-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Hipparchus/V1u4/hipparchus-samples-1.4-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Hipparchus/V1u4/hipparchus-stat-1.4-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib/Hipparchus/V1u4/hipparchus-clustering-1.4-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Hipparchus/V1u4/hipparchus-core-1.4-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Hipparchus/V1u4/hipparchus-fft-1.4-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Hipparchus/V1u4/hipparchus-filtering-1.4-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Hipparchus/V1u4/hipparchus-fitting-1.4-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Hipparchus/V1u4/hipparchus-geometry-1.4-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Hipparchus/V1u4/hipparchus-migration-1.4-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Hipparchus/V1u4/hipparchus-ode-1.4-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Hipparchus/V1u4/hipparchus-optim-1.4-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Hipparchus/V1u4/hipparchus-samples-1.4-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Hipparchus/V1u4/hipparchus-stat-1.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
