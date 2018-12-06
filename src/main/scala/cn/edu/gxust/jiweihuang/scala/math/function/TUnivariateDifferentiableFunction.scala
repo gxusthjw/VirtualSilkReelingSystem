@@ -4,6 +4,7 @@ import org.hipparchus.analysis.differentiation.{DSFactory, UnivariateDifferentia
 
 trait TUnivariateDifferentiableFunction extends TUnivariateFunction
   with UnivariateDifferentiableFunction {
-  def differential(x: Double, order: Int = 1): Double =
+  def differential(x: Double, order: Int = 1): Double = {
     value(new DSFactory(1, order).variable(0, x)).getPartialDerivative(1)
+  }
 }

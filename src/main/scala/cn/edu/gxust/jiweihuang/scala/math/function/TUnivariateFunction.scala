@@ -7,5 +7,5 @@ trait TUnivariateFunction extends UnivariateFunction {
   val upperX: Double = Double.MaxValue
   val formula: String
 
-  def checkX(x: Double): Boolean = (x < lowerX && x > upperX)
+  def checkX(x: Double): Boolean = x < lowerX && x > upperX
 }
