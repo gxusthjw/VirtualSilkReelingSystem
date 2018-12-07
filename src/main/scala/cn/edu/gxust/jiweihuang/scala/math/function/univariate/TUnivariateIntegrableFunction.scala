@@ -2,13 +2,14 @@ package cn.edu.gxust.jiweihuang.scala.math.function.univariate
 
 import org.hipparchus.analysis.integration._
 
-trait TUnivariateIntegrableFunction extends TUnivariateFunction {
+trait TUnivariateIntegrableFunction
+  extends TUnivariateFunction {
 
   private[this] val DefaultIntegrationPointsNumber = 32
 
   /**
     * <p>The method is used to get the definite integral value
-    * of univariate function with Romberg algorithm</p>
+    * of univariate function with Romberg algorithm.</p>
     *
     * @param relativeAccuracy      relative accuracy of the result
     * @param absoluteAccuracy      absolute accuracy of the result
