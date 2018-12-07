@@ -83,8 +83,32 @@ final class Logistic(val logisticM: Double = 1.0,
     * @param x independent variable.
     * @return the function value at {{{x}}}.
     */
-  override def value(x: Double): Double =logisticM / (1 + exp(-logisticK * (x - logisticX0)))
+  override def value(x: Double): Double = logisticM / (1 + exp(-logisticK * (x - logisticX0)))
 
+  override def equals(other: Any): Boolean = other match {
+    case that: Logistic =>
+      (that canEqual this) &&
+        logisticM == that.logisticM &&
+        logisticK == that.logisticK &&
+        logisticX0 == that.logisticX0
+    case _ => false
+  }
+
+  override def hashCode(): Int = {
+    val state = Seq(logisticM, logisticK, logisticX0)
+    state.map(_.hashCode()).foldLeft(0)((a, b) => 31 * a + b)
+  }
+
+  /**
+    * whether {{{other}}} is instance of class [[Logistic]]
+    *
+    * @param other another instance of class [[Logistic]]
+    * @return {{{Boolean}}} for whether {{{other}}} is instance of class [[Logistic]]
+    */
+  def canEqual(other: Any): Boolean = other.isInstanceOf[Logistic]
+}
+
+object Logistic {
 
   final class Parametric extends ParametricUnivariateFunction {
     override def value(x: Double, parameters: Double*): Double = {
@@ -114,30 +138,6 @@ final class Logistic(val logisticM: Double = 1.0,
     }
   }
 
-  override def equals(other: Any): Boolean = other match {
-    case that: Logistic =>
-      (that canEqual this) &&
-        logisticM == that.logisticM &&
-        logisticK == that.logisticK &&
-        logisticX0 == that.logisticX0
-    case _ => false
-  }
-
-  override def hashCode(): Int = {
-    val state = Seq(logisticM, logisticK, logisticX0)
-    state.map(_.hashCode()).foldLeft(0)((a, b) => 31 * a + b)
-  }
-
-  /**
-    * whether {{{other}}} is instance of class [[Logistic]]
-    *
-    * @param other another instance of class [[Logistic]]
-    * @return {{{Boolean}}} for whether {{{other}}} is instance of class [[Logistic]]
-    */
-  def canEqual(other: Any): Boolean = other.isInstanceOf[Logistic]
-}
-
-object Logistic {
   def apply(logisticM: Double = 1.0, logisticK: Double = -1.0, logisticX0: Double = 0.0): Logistic = new Logistic(logisticM, logisticK, logisticX0)
 
   def unapply(logistic: Logistic): Option[(Double, Double, Double)] =

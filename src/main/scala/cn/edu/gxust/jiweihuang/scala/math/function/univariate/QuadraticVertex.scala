@@ -170,9 +170,15 @@ final class QuadraticVertex(val quadraticVertexA: Double = 1.0,
     val state = Seq(quadraticVertexA, quadraticVertexB, quadraticVertexC)
     state.map(_.hashCode()).foldLeft(0)((a, b) => 31 * a + b)
   }
+}
 
+/**
+  * Companion Object for class [[QuadraticVertex]].
+  */
+object QuadraticVertex {
   final class Parametric extends ParametricUnivariateFunction {
     override def value(x: Double, parameters: Double*): Double = {
+      checkParameter(parameters: _*)
       val a = parameters(0)
       val b = parameters(1)
       val c = parameters(2)
@@ -180,8 +186,10 @@ final class QuadraticVertex(val quadraticVertexA: Double = 1.0,
     }
 
     override def gradient(x: Double, parameters: Double*): Array[Double] = {
+      checkParameter(parameters: _*)
       val a = parameters(0)
       val b = parameters(1)
+      val c = parameters(2)
       val result = Array[Double](3)
       result(0) = pow(x - b, 2)
       result(1) = -2 * a * (x - b)
@@ -189,19 +197,12 @@ final class QuadraticVertex(val quadraticVertexA: Double = 1.0,
       result
     }
 
-    def checkParameter(parameters: Seq[Double]): Unit = {
+    def checkParameter(parameters: Double*): Unit = {
       if (parameters == null) throw new IllegalArgumentException(s"Expected the parameter {parameters != null},but got {parameters = null}}")
       if (parameters.length != 3) throw new IllegalArgumentException(s"Expected the parameter {parameters.length == 3},but got {parameters.length = ${parameters.length}}")
       if (parameters.head == 0) throw new IllegalArgumentException(s"Expected the parameter {parameters(0) != 0},but got {parameters(0) = ${parameters.head}}")
     }
   }
-
-}
-
-/**
-  * Companion Object for class [[QuadraticVertex]].
-  */
-object QuadraticVertex {
   /**
     * in order to acquire ability of constructing [[QuadraticVertex]] object without new.
     */
