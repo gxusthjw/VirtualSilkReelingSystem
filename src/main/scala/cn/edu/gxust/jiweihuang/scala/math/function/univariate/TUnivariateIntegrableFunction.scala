@@ -4,6 +4,8 @@ import org.hipparchus.analysis.integration._
 
 trait TUnivariateIntegrableFunction extends TUnivariateFunction {
 
+  private[this] val DefaultIntegrationPointsNumber = 32
+
   /**
     * <p>The method is used to get the definite integral value
     * of univariate function with Romberg algorithm</p>
@@ -96,7 +98,6 @@ trait TUnivariateIntegrableFunction extends TUnivariateFunction {
     new TrapezoidIntegrator(relativeAccuracy, absoluteAccuracy,
       minimalIterationCount, maximalIterationCount).integrate(maxIter, this, lowerX, upperX)
 
-
   /**
     * <p>The method is used to get the definite integral value
     * of univariate function with IterativeLegendreGauss algorithm</p>
@@ -122,6 +123,4 @@ trait TUnivariateIntegrableFunction extends TUnivariateFunction {
     new IterativeLegendreGaussIntegrator(integrationPointsNumber,
       relativeAccuracy, absoluteAccuracy, minimalIterationCount,
       maximalIterationCount).integrate(maxIter, this, lowerX, upperX)
-
-  private[this] val DefaultIntegrationPointsNumber = 32
 }
