@@ -64,7 +64,7 @@ object TQuadraticVertexLogistic {
       val x0 = parameters(5)
       val d = parameters(6)
       val result = Array[Double](7)
-      import TQuadraticVertexLogistic._
+
       result(0) = quadraticVertexLogisticDerivativeA(a, b, c, m, k, x0, d)(x)
       result(1) = quadraticVertexLogisticDerivativeB(a, b, c, m, k, x0, d)(x)
       result(2) = quadraticVertexLogisticDerivativeC(a, b, c, m, k, x0, d)(x)
