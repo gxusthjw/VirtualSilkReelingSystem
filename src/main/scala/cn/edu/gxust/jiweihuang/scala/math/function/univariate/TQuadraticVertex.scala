@@ -96,46 +96,6 @@ trait TQuadraticVertex extends TQuadratic {
   override def derivative(x: Double): Double = 2 * quadraticVertexA * (x - quadraticVertexB)
 
   /**
-    * The add operation for {{{QuadraticVertex}}} object and  a double number.
-    *
-    * @param n the operands
-    * @return new { @code QuadraticVertex} object
-    */
-  def +(n: Double): TQuadraticVertex = {
-    QuadraticVertex(quadraticVertexA, quadraticVertexB, quadraticVertexC + n)
-  }
-
-  /**
-    * The subtraction operation for {{{QuadraticVertex}}} object and  a double number.
-    *
-    * @param n the operands
-    * @return new { @code QuadraticVertex} object
-    */
-  def -(n: Double): TQuadraticVertex = {
-    QuadraticVertex(quadraticVertexA, quadraticVertexB, quadraticVertexC - n)
-  }
-
-  /**
-    * The multiplication operation for {{{QuadraticVertex}}} object and  a double number.
-    *
-    * @param n the operands
-    * @return new { @code QuadraticVertex} object
-    */
-  def *(n: Double): TQuadraticVertex = {
-    QuadraticVertex(quadraticVertexA * n, quadraticVertexB, quadraticVertexC * n)
-  }
-
-  /**
-    * The division operation for {{{QuadraticVertex}}} object and  a double number.
-    *
-    * @param n the operands
-    * @return new { @code QuadraticVertex} object
-    */
-  def /(n: Double): TQuadraticVertex = {
-    QuadraticVertex(quadraticVertexA / n, quadraticVertexB, quadraticVertexC / n)
-  }
-
-  /**
     * whether {{{other}}} is equals {{{this}}}
     *
     * @param other another instance of class [[TQuadraticVertex]]
