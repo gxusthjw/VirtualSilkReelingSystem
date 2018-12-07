@@ -13,6 +13,7 @@ import scala.math._
   * {{{quadraticVertexA}}} the parameter {a} of the vertex form of quadratic function.
   * {{{quadraticVertexB}}} the parameter {b} of the vertex form of quadratic function.
   * {{{quadraticVertexC}}} the parameter {c} of the vertex form of quadratic function.
+  *
   * @see TQuadratic
   */
 trait TQuadraticVertex extends TQuadratic {
@@ -86,21 +87,8 @@ trait TQuadraticVertex extends TQuadratic {
     quadraticVertexC * x - quadraticVertexA * quadraticVertexB * Math.pow(x, 2.0) +
     quadraticVertexA * pow(x, 3) / 3.0
 
-  /**
-    * <p>the method {{{derivative(x: Double)}}} is used to get the derivative value of
-    * function at specified {{{x}}}.
-    *
-    * @param x independent variable
-    * @return the derivative value of analytical derivative function.
-    */
   override def derivative(x: Double): Double = 2 * quadraticVertexA * (x - quadraticVertexB)
 
-  /**
-    * whether {{{other}}} is equals {{{this}}}
-    *
-    * @param other another instance of class [[TQuadraticVertex]]
-    * @return {{{Boolean}}} for whether {{{other}}} is equals {{{this}}}
-    */
   override def equals(other: Any): Boolean = other match {
     case that: TQuadraticVertex =>
       (that canEqual this) &&
@@ -110,28 +98,17 @@ trait TQuadraticVertex extends TQuadratic {
     case _ => false
   }
 
-  /**
-    * whether {{{other}}} is instance of class [[TQuadraticVertex]]
-    *
-    * @param other another instance of class [[TQuadraticVertex]]
-    * @return {{{Boolean}}} for whether {{{other}}} is instance of class [[TQuadraticVertex]]
-    */
+
   def canEqual(other: Any): Boolean = other.isInstanceOf[TQuadraticVertex]
 
-  /**
-    * to get the hash code.it was used for method {{{equals(other: Any)}}}
-    *
-    * @return
-    */
+
   override def hashCode(): Int = {
     val state = Seq(quadraticVertexA, quadraticVertexB, quadraticVertexC)
     state.map(_.hashCode()).foldLeft(0)((a, b) => 31 * a + b)
   }
 }
 
-/**
-  * Companion Object for class [[TQuadraticVertex]].
-  */
+
 object TQuadraticVertex {
 
   final class Parametric extends ParametricUnivariateFunction {
