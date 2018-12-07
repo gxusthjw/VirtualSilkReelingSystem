@@ -11,3 +11,7 @@ class QuadraticVertexLogisticFitter(val initialGuess: Array[Double], val maxIter
 
   override def getProblem(points: util.Collection[WeightedObservedPoint]): LeastSquaresProblem = ???
 }
+
+object QuadraticVertexLogisticFitter{
+
+}
