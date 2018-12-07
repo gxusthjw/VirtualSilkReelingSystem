@@ -1,4 +1,4 @@
-package cn.edu.gxust.jiweihuang.scala.math.function
+package cn.edu.gxust.jiweihuang.scala.math.function.univariate
 
 import org.hipparchus.analysis.integration._
 
@@ -125,4 +125,3 @@ trait TUnivariateIntegrableFunction extends TUnivariateFunction {
 
   private[this] val DefaultIntegrationPointsNumber = 32
 }
-

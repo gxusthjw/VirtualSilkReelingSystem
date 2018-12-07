@@ -1,4 +1,4 @@
-package cn.edu.gxust.jiweihuang.scala.math.function
+package cn.edu.gxust.jiweihuang.scala.math.function.univariate
 
 trait TUnivariateIntegralFunction extends TUnivariateFunction {
   //val integralConstant = 0.0

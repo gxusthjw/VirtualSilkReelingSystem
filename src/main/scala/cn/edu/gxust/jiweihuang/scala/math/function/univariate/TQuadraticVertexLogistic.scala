@@ -1,6 +1,6 @@
 package cn.edu.gxust.jiweihuang.scala.math.function.univariate
 
-import cn.edu.gxust.jiweihuang.scala.math.function.{TUnivariateDerivativeFunction, TUnivariateDifferentiableFunction, TUnivariateIntegrableFunction, TUnivariateIntegralFunction}
+import cn.edu.gxust.jiweihuang.scala.math.function.TUnivariateIntegralFunction
 import org.hipparchus.analysis.ParametricUnivariateFunction
 import org.hipparchus.analysis.differentiation.DerivativeStructure
 
