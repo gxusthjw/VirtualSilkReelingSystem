@@ -8,7 +8,7 @@ import scala.math.{exp, log, pow}
 
 
 /**
-  * <p>The class [[TLogistic]] is used for representing
+  * <p>The trait [[TLogistic]] is used for representing
   * the logistic function of which formula is
   * {{{l(x) = m/(1+exp(-k*(x-x0)))}}}.</p>
   *
@@ -20,9 +20,11 @@ trait TLogistic extends TUnivariateDifferentiableFunction
   with TUnivariateIntegrableFunction
   with TUnivariateDerivativeFunction
   with TUnivariateIntegralFunction {
+
   val logisticM: Double = 1.0
   val logisticK: Double = -1.0
   val logisticX0: Double = 0.0
+
   if (logisticM == 0) throw new IllegalArgumentException(s"Expected the parameter {logisticM != 0},but get {logisticM = $logisticM}")
 
   /**
@@ -75,13 +77,6 @@ trait TLogistic extends TUnivariateDifferentiableFunction
   override def value(t: DerivativeStructure): DerivativeStructure =
     t.subtract(logisticX0).multiply(-logisticK).exp().add(1).pow(-1).multiply(logisticM)
 
-  /**
-    * the method {{{value(x: Double)}}} is used to get
-    * the function value at {{{x}}}.
-    *
-    * @param x independent variable.
-    * @return the function value at {{{x}}}.
-    */
   override def value(x: Double): Double = logisticM / (1 + exp(-logisticK * (x - logisticX0)))
 
   override def equals(other: Any): Boolean = other match {
@@ -98,12 +93,6 @@ trait TLogistic extends TUnivariateDifferentiableFunction
     state.map(_.hashCode()).foldLeft(0)((a, b) => 31 * a + b)
   }
 
-  /**
-    * whether {{{other}}} is instance of class [[TLogistic]]
-    *
-    * @param other another instance of class [[TLogistic]]
-    * @return {{{Boolean}}} for whether {{{other}}} is instance of class [[TLogistic]]
-    */
   def canEqual(other: Any): Boolean = other.isInstanceOf[TLogistic]
 }
 
@@ -137,7 +126,7 @@ object TLogistic {
     }
   }
 
-  def apply(logisticM: Double = 1.0, logisticK: Double = -1.0, logisticX0: Double = 0.0): TLogistic = new TLogistic(logisticM, logisticK, logisticX0)
+  def apply(logisticM: Double = 1.0, logisticK: Double = -1.0, logisticX0: Double = 0.0): TLogistic = new Logistic(logisticM, logisticK, logisticX0)
 
   def unapply(logistic: TLogistic): Option[(Double, Double, Double)] =
     if (logistic == null) None

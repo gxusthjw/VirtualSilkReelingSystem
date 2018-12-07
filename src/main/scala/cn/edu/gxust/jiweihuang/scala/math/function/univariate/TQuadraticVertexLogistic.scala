@@ -14,11 +14,11 @@ trait TQuadraticVertexLogistic extends TUnivariateDifferentiableFunction
   val quadraticVertexA: Double
   val quadraticVertexB: Double
   val quadraticVertexC: Double
-  val quadraticVertex: TQuadraticVertex = TQuadraticVertex(quadraticVertexA, quadraticVertexB, quadraticVertexC)
+  val quadraticVertex: TQuadraticVertex = QuadraticVertex(quadraticVertexA, quadraticVertexB, quadraticVertexC)
   val logisticM: Double
   val logisticK: Double
   val logisticX0: Double
-  val logistic: TLogistic = TLogistic(logisticM, logisticK, logisticX0)
+  val logistic: TLogistic = Logistic(logisticM, logisticK, logisticX0)
   val quadraticVertexLogisticD: Double
 
   override def derivative(x: Double): Double = quadraticVertex.derivative(x) * logistic.value(x) + logistic.derivative(x) * quadraticVertex.value(x)
