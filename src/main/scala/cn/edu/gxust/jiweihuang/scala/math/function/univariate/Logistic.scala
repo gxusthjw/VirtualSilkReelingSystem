@@ -9,9 +9,8 @@ import scala.math.{exp, log, pow}
 
 /**
   * <p>The class [[Logistic]] is used for representing
-  * the logistic function.</p>
-  *
-  * <p>the formula:{{{l(x) = m/(1+exp(-k*(x-x0)))}}}</p>
+  * the logistic function of which formula is
+  * {{{l(x) = m/(1+exp(-k*(x-x0)))}}}.</p>
   *
   * @param logisticM  The parameter {m} of logistic function.
   * @param logisticK  The parameter {k} of logistic function.
@@ -34,41 +33,38 @@ final class Logistic(val logisticM: Double = 1.0,
 
   /**
     * <p>The method {{{derivative(x: Double)}}} is used to
-    * get the derivative  value of univariate derivative function.</p>
+    * get the derivative value of analysis univariate derivative function.</p>
     *
     * @param x independent variable.
     * @return the derivative value.
     */
-  override def derivative(x: Double): Double = if (checkX(x)) (logisticM * logisticK * logisticExp(x)) / pow(logisticExpAddOne(x), 2)
-  else throw new IllegalArgumentException(s"Expected the parameter {$lowerX <= x <= $upperX},but get {x = $x}")
+  override def derivative(x: Double): Double = (logisticM * logisticK * logisticExp(x)) / pow(logisticExpAddOne(x), 2)
 
   /**
-    * to calculate one add exp part of logistic function.
+    * The method {{{logisticExpAddOne(x: Double)}}} is used to
+    * calculate one add exp part ({{{1+exp(-k*(x-x0))}}})of logistic function.
     *
     * @param x independent variable.
-    * @return {1+exp(-k*(x-x0))}.
+    * @return the calculate value of {1+exp(-k*(x-x0))}.
     */
-  def logisticExpAddOne(x: Double): Double = if (checkX(x)) 1 + logisticExp(x)
-  else throw new IllegalArgumentException(s"Expected the parameter {$lowerX <= x <= $upperX},but get {x = $x}")
+  def logisticExpAddOne(x: Double): Double = 1 + logisticExp(x)
 
   /**
-    * to calculate the exp part of logistic function.
+    * to calculate the exp part ({{{exp(-k*(x-x0))}}}) of logistic function.
     *
     * @param x independent variable.
-    * @return { @code exp(-k*(x-x0))}
+    * @return the calculate value of {{{exp(-k*(x-x0))}}}
     **/
-  def logisticExp(x: Double): Double = if (checkX(x)) exp(-logisticK * (x - logisticX0))
-  else throw new IllegalArgumentException(s"Expected the parameter {$lowerX <= x <= $upperX},but get {x = $x}")
+  def logisticExp(x: Double): Double = exp(-logisticK * (x - logisticX0))
 
   /**
     * The method {{{integrate(x: Double)}}} is used to get
-    * the integral value of univariate integral function.
+    * the integral value of analysis univariate integral function.
     *
     * @param x independent variable.
     * @return the integral value.
     */
-  override def integrate(x: Double): Double = if (checkX(x)) logisticM * (x + (log(logisticExpAddOne(x)) / logisticK))
-  else throw new IllegalArgumentException(s"Expected the parameter {$lowerX <= x <= $upperX},but get {x = $x}")
+  override def integrate(x: Double): Double = logisticM * (x + (log(logisticExpAddOne(x)) / logisticK))
 
   /**
     * the method {{{value(t: DerivativeStructure)}}} is used to get
@@ -77,18 +73,17 @@ final class Logistic(val logisticM: Double = 1.0,
     * @param t the [[DerivativeStructure]] form of independent variable.
     * @return the [[DerivativeStructure]] form of function.
     */
-  override def value(t: DerivativeStructure): DerivativeStructure = t.subtract(logisticX0).multiply(-logisticK).exp().add(1).pow(-1).multiply(logisticM)
+  override def value(t: DerivativeStructure): DerivativeStructure =
+    t.subtract(logisticX0).multiply(-logisticK).exp().add(1).pow(-1).multiply(logisticM)
 
   /**
     * the method {{{value(x: Double)}}} is used to get
     * the function value at {{{x}}}.
     *
     * @param x independent variable.
-    * @return the function value at { @code x}.
+    * @return the function value at {{{x}}}.
     */
-  override def value(x: Double): Double =
-    if (checkX(x)) logisticM / (1 + exp(-logisticK * (x - logisticX0)))
-    else throw new IllegalArgumentException(s"Expected the parameter {$lowerX <= x <= $upperX},but get {x = $x}")
+  override def value(x: Double): Double =logisticM / (1 + exp(-logisticK * (x - logisticX0)))
 
 
   final class Parametric extends ParametricUnivariateFunction {
@@ -134,12 +129,12 @@ final class Logistic(val logisticM: Double = 1.0,
   }
 
   /**
-    * whether {{{other}}} is instance of class [[QuadraticVertex]]
+    * whether {{{other}}} is instance of class [[Logistic]]
     *
-    * @param other another instance of class [[QuadraticVertex]]
-    * @return {{{Boolean}}} for whether {{{other}}} is instance of class [[QuadraticVertex]]
+    * @param other another instance of class [[Logistic]]
+    * @return {{{Boolean}}} for whether {{{other}}} is instance of class [[Logistic]]
     */
-  def canEqual(other: Any): Boolean = other.isInstanceOf[QuadraticVertex]
+  def canEqual(other: Any): Boolean = other.isInstanceOf[Logistic]
 }
 
 object Logistic {
