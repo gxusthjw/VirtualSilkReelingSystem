@@ -4,9 +4,7 @@ import cn.edu.gxust.jiweihuang.scala.math.NumericalConstants
 import cn.edu.gxust.jiweihuang.scala.test.UnitSpec
 
 class LogisticTest extends UnitSpec {
-  /**
-    *
-    */
+
   "a Logistic constructor" should "throw new IllegalArgumentException if {logisticM = 0}" in {
     assertThrows[IllegalArgumentException] {
       TLogistic(0, 1, 2)
