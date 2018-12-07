@@ -2,7 +2,7 @@ package cn.edu.gxust.jiweihuang.scala.math.fitting
 
 import java.util
 
-import cn.edu.gxust.jiweihuang.scala.math.function.univariate.Logistic
+import cn.edu.gxust.jiweihuang.scala.math.function.univariate.TLogistic
 import org.hipparchus.fitting.AbstractCurveFitter.TheoreticalValuesFunction
 import org.hipparchus.fitting.{AbstractCurveFitter, WeightedObservedPoint}
 import org.hipparchus.linear.DiagonalMatrix
@@ -12,7 +12,7 @@ class LogisticFitter(val initialGuess: Array[Double] = new Array[Double](3),
                      val maxIter: Int = Int.MaxValue)
   extends AbstractCurveFitter {
 
-  val logisticFunction: Logistic.Parametric = new Logistic.Parametric()
+  val logisticFunction: TLogistic.Parametric = new TLogistic.Parametric()
 
   def withStartPoint(newStart: Array[Double]): LogisticFitter = {
     LogisticFitter(newStart.clone(), maxIter)
@@ -42,9 +42,9 @@ class LogisticFitter(val initialGuess: Array[Double] = new Array[Double](3),
       model(model.getModelFunction, model.getModelFunctionJacobian).build
   }
 
-  def fitToLogistic(observations: util.Collection[WeightedObservedPoint]): Logistic = {
+  def fitToLogistic(observations: util.Collection[WeightedObservedPoint]): TLogistic = {
     val p: Array[Double] = fit(observations)
-    Logistic(p(0), p(1), p(2))
+    TLogistic(p(0), p(1), p(2))
   }
 }
 

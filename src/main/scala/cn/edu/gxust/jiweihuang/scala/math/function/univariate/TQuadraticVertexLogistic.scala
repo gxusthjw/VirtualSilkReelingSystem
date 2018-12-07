@@ -14,11 +14,11 @@ trait TQuadraticVertexLogistic extends TUnivariateDifferentiableFunction
   val quadraticVertexA: Double
   val quadraticVertexB: Double
   val quadraticVertexC: Double
-  val quadraticVertex: QuadraticVertex = QuadraticVertex(quadraticVertexA, quadraticVertexB, quadraticVertexC)
+  val quadraticVertex: TQuadraticVertex = TQuadraticVertex(quadraticVertexA, quadraticVertexB, quadraticVertexC)
   val logisticM: Double
   val logisticK: Double
   val logisticX0: Double
-  val logistic: Logistic = Logistic(logisticM, logisticK, logisticX0)
+  val logistic: TLogistic = TLogistic(logisticM, logisticK, logisticX0)
   val quadraticVertexLogisticD: Double
 
   override def derivative(x: Double): Double = quadraticVertex.derivative(x) * logistic.value(x) + logistic.derivative(x) * quadraticVertex.value(x)
@@ -106,48 +106,48 @@ object TQuadraticVertexLogistic {
       quadraticVertexLogistic.quadraticVertexLogisticD)
 
   def quadraticVertexLogistic(a: Double, b: Double, c: Double, m: Double, k: Double, x0: Double, d: Double)(x: Double): Double = {
-    import cn.edu.gxust.jiweihuang.scala.math.function.univariate.Logistic._
-    import cn.edu.gxust.jiweihuang.scala.math.function.univariate.QuadraticVertex._
+    import cn.edu.gxust.jiweihuang.scala.math.function.univariate.TLogistic._
+    import cn.edu.gxust.jiweihuang.scala.math.function.univariate.TQuadraticVertex._
     quadraticVertex(a, b, c)(x) * logistic(m, k, x0)(x) + d
   }
 
   def quadraticVertexLogisticDerivative(a: Double, b: Double, c: Double, m: Double, k: Double, x0: Double, d: Double)(x: Double): Double = {
-    import cn.edu.gxust.jiweihuang.scala.math.function.univariate.Logistic._
-    import cn.edu.gxust.jiweihuang.scala.math.function.univariate.QuadraticVertex._
+    import cn.edu.gxust.jiweihuang.scala.math.function.univariate.TLogistic._
+    import cn.edu.gxust.jiweihuang.scala.math.function.univariate.TQuadraticVertex._
     quadraticVertexDerivative(a, b, c)(x) * logistic(m, k, x0)(x) + logisticDerivative(m, k, x0)(x) * quadraticVertex(a, b, c)(x)
   }
 
   def quadraticVertexLogisticDerivativeA(a: Double, b: Double, c: Double, m: Double, k: Double, x0: Double, d: Double)(x: Double): Double = {
-    import cn.edu.gxust.jiweihuang.scala.math.function.univariate.Logistic._
+    import cn.edu.gxust.jiweihuang.scala.math.function.univariate.TLogistic._
     pow(x - b, 2) * logistic(m, k, x0)(x)
   }
 
   def quadraticVertexLogisticDerivativeB(a: Double, b: Double, c: Double, m: Double, k: Double, x0: Double, d: Double)(x: Double): Double = {
-    import cn.edu.gxust.jiweihuang.scala.math.function.univariate.Logistic._
-    import cn.edu.gxust.jiweihuang.scala.math.function.univariate.QuadraticVertex._
+    import cn.edu.gxust.jiweihuang.scala.math.function.univariate.TLogistic._
+    import cn.edu.gxust.jiweihuang.scala.math.function.univariate.TQuadraticVertex._
     quadraticVertexDerivative(a, b, c)(x) * logistic(m, k, x0)(x)
   }
 
   def quadraticVertexLogisticDerivativeC(a: Double, b: Double, c: Double, m: Double, k: Double, x0: Double, d: Double)(x: Double): Double = {
-    import cn.edu.gxust.jiweihuang.scala.math.function.univariate.Logistic._
+    import cn.edu.gxust.jiweihuang.scala.math.function.univariate.TLogistic._
     logistic(m, k, x0)(x)
   }
 
   def quadraticVertexLogisticDerivativeM(a: Double, b: Double, c: Double, m: Double, k: Double, x0: Double, d: Double)(x: Double): Double = {
-    import cn.edu.gxust.jiweihuang.scala.math.function.univariate.Logistic._
-    import cn.edu.gxust.jiweihuang.scala.math.function.univariate.QuadraticVertex._
+    import cn.edu.gxust.jiweihuang.scala.math.function.univariate.TLogistic._
+    import cn.edu.gxust.jiweihuang.scala.math.function.univariate.TQuadraticVertex._
     quadraticVertex(a, b, c)(x) / logisticExpAddOne(k, x0)(x)
   }
 
   def quadraticVertexLogisticDerivativeK(a: Double, b: Double, c: Double, m: Double, k: Double, x0: Double, d: Double)(x: Double): Double = {
-    import cn.edu.gxust.jiweihuang.scala.math.function.univariate.Logistic._
-    import cn.edu.gxust.jiweihuang.scala.math.function.univariate.QuadraticVertex._
+    import cn.edu.gxust.jiweihuang.scala.math.function.univariate.TLogistic._
+    import cn.edu.gxust.jiweihuang.scala.math.function.univariate.TQuadraticVertex._
     logisticExp(k, x0)(x) * quadraticVertex(a, b, c)(x) * (x - x0) * m / pow(logisticExpAddOne(k, x0)(x), 2)
   }
 
   def quadraticVertexLogisticDerivativeX0(a: Double, b: Double, c: Double, m: Double, k: Double, x0: Double, d: Double)(x: Double): Double = {
-    import cn.edu.gxust.jiweihuang.scala.math.function.univariate.Logistic._
-    import cn.edu.gxust.jiweihuang.scala.math.function.univariate.QuadraticVertex._
+    import cn.edu.gxust.jiweihuang.scala.math.function.univariate.TLogistic._
+    import cn.edu.gxust.jiweihuang.scala.math.function.univariate.TQuadraticVertex._
     -logisticExp(k, x0)(x) * quadraticVertex(a, b, c)(x) * k * m / pow(logisticExpAddOne(k, x0)(x), 2)
   }
 
