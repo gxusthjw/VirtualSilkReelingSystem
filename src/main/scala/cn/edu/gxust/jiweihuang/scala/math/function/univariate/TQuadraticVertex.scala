@@ -10,9 +10,9 @@ import scala.math._
   * the vertex form of quadratic function of which formula is
   * {{{q(x)=a*(x-b)^2+c}}}</p>
   *
-  * @param quadraticVertexA the parameter {a} of the vertex form of quadratic function.
-  * @param quadraticVertexB the parameter {b} of the vertex form of quadratic function.
-  * @param quadraticVertexC the parameter {c} of the vertex form of quadratic function.
+  * {{{quadraticVertexA}}} the parameter {a} of the vertex form of quadratic function.
+  * {{{quadraticVertexB}}} the parameter {b} of the vertex form of quadratic function.
+  * {{{quadraticVertexC}}} the parameter {c} of the vertex form of quadratic function.
   * @see TQuadratic
   */
 trait TQuadraticVertex extends TQuadratic {
@@ -102,7 +102,7 @@ trait TQuadraticVertex extends TQuadratic {
     * @return new { @code QuadraticVertex} object
     */
   def +(n: Double): TQuadraticVertex = {
-    new QuadraticVertex(quadraticVertexA, quadraticVertexB, quadraticVertexC + n)
+    QuadraticVertex(quadraticVertexA, quadraticVertexB, quadraticVertexC + n)
   }
 
   /**
@@ -112,7 +112,7 @@ trait TQuadraticVertex extends TQuadratic {
     * @return new { @code QuadraticVertex} object
     */
   def -(n: Double): TQuadraticVertex = {
-    new QuadraticVertex(quadraticVertexA, quadraticVertexB, quadraticVertexC - n)
+    QuadraticVertex(quadraticVertexA, quadraticVertexB, quadraticVertexC - n)
   }
 
   /**
@@ -122,7 +122,7 @@ trait TQuadraticVertex extends TQuadratic {
     * @return new { @code QuadraticVertex} object
     */
   def *(n: Double): TQuadraticVertex = {
-    new QuadraticVertex(quadraticVertexA * n, quadraticVertexB, quadraticVertexC * n)
+    QuadraticVertex(quadraticVertexA * n, quadraticVertexB, quadraticVertexC * n)
   }
 
   /**
@@ -132,7 +132,7 @@ trait TQuadraticVertex extends TQuadratic {
     * @return new { @code QuadraticVertex} object
     */
   def /(n: Double): TQuadraticVertex = {
-    new QuadraticVertex(quadraticVertexA / n, quadraticVertexB, quadraticVertexC / n)
+    QuadraticVertex(quadraticVertexA / n, quadraticVertexB, quadraticVertexC / n)
   }
 
   /**
@@ -187,7 +187,7 @@ object TQuadraticVertex {
       checkParameter(parameters: _*)
       val a = parameters(0)
       val b = parameters(1)
-      val c = parameters(2)
+      //val c = parameters(2)
       val result = Array[Double](3)
       result(0) = pow(x - b, 2)
       result(1) = -2 * a * (x - b)
@@ -206,7 +206,7 @@ object TQuadraticVertex {
     * in order to acquire ability of constructing [[TQuadraticVertex]] object without new.
     */
   def apply(quadraticVertexA: Double = 1.0, quadraticVertexB: Double = 0.0, quadraticVertexC: Double = 0.0): TQuadraticVertex =
-    new QuadraticVertex(quadraticVertexA, quadraticVertexB, quadraticVertexC)
+    QuadraticVertex(quadraticVertexA, quadraticVertexB, quadraticVertexC)
 
   /**
     * in order to acquire ability of case information.

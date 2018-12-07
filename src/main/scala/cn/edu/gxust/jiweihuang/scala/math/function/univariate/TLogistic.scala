@@ -1,6 +1,6 @@
 package cn.edu.gxust.jiweihuang.scala.math.function.univariate
 
-import cn.edu.gxust.jiweihuang.scala.math.function.TUnivariateIntegralFunction
+
 import org.hipparchus.analysis.ParametricUnivariateFunction
 import org.hipparchus.analysis.differentiation.DerivativeStructure
 
@@ -12,9 +12,9 @@ import scala.math.{exp, log, pow}
   * the logistic function of which formula is
   * {{{l(x) = m/(1+exp(-k*(x-x0)))}}}.</p>
   *
-  * @param logisticM  The parameter {m} of logistic function.
-  * @param logisticK  The parameter {k} of logistic function.
-  * @param logisticX0 The parameter {x0} of logistic function.
+  * {{{logisticM}}}  The parameter {m} of logistic function.
+  * {{{logisticK}}}  The parameter {k} of logistic function.
+  * {{{logisticX0}}} The parameter {x0} of logistic function.
   */
 trait TLogistic extends TUnivariateDifferentiableFunction
   with TUnivariateIntegrableFunction
