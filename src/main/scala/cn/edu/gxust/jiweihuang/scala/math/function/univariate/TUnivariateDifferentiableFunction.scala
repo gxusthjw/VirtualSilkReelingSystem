@@ -1,6 +1,7 @@
 package cn.edu.gxust.jiweihuang.scala.math.function.univariate
 
-import org.hipparchus.analysis.differentiation.{DSFactory, UnivariateDifferentiableFunction}
+import org.hipparchus.analysis.differentiation.{DSFactory,
+  UnivariateDifferentiableFunction}
 
 trait TUnivariateDifferentiableFunction extends TUnivariateFunction
   with UnivariateDifferentiableFunction {

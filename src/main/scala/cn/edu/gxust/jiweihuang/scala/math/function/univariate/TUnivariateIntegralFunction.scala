@@ -4,5 +4,5 @@ trait TUnivariateIntegralFunction extends TUnivariateFunction {
   //val integralConstant = 0.0
   def integrate(x: Double): Double
 
-  def definiteIntegrate(lowerX: Double, upperX: Double): Double = integrate(upperX) - integrate(lowerX)
+  def integrate(lowerX: Double, upperX: Double): Double = integrate(upperX) - integrate(lowerX)
 }
