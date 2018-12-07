@@ -12,9 +12,9 @@ import scala.math.{exp, log, pow}
   * the logistic function of which formula is
   * {{{l(x) = m/(1+exp(-k*(x-x0)))}}}.</p>
   *
-  * {{{logisticM}}}  The parameter {m} of logistic function.
-  * {{{logisticK}}}  The parameter {k} of logistic function.
-  * {{{logisticX0}}} The parameter {x0} of logistic function.
+  * {{{logisticM}}} :The parameter {m} of logistic function.
+  * {{{logisticK}}} :The parameter {k} of logistic function.
+  * {{{logisticX0}}}:The parameter {x0} of logistic function.
   */
 trait TLogistic extends TUnivariateDifferentiableFunction
   with TUnivariateIntegrableFunction
@@ -126,7 +126,7 @@ object TLogistic {
     }
   }
 
-  def apply(logisticM: Double = 1.0, logisticK: Double = -1.0, logisticX0: Double = 0.0): TLogistic = new Logistic(logisticM, logisticK, logisticX0)
+  def apply(logisticM: Double = 1.0, logisticK: Double = -1.0, logisticX0: Double = 0.0): TLogistic = Logistic(logisticM, logisticK, logisticX0)
 
   def unapply(logistic: TLogistic): Option[(Double, Double, Double)] =
     if (logistic == null) None

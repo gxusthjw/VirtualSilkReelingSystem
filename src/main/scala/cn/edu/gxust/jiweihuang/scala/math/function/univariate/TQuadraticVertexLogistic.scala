@@ -1,6 +1,6 @@
 package cn.edu.gxust.jiweihuang.scala.math.function.univariate
 
-import cn.edu.gxust.jiweihuang.scala.math.function.TUnivariateIntegralFunction
+
 import org.hipparchus.analysis.ParametricUnivariateFunction
 import org.hipparchus.analysis.differentiation.DerivativeStructure
 
@@ -10,17 +10,16 @@ trait TQuadraticVertexLogistic extends TUnivariateDifferentiableFunction
   with TUnivariateIntegrableFunction
   with TUnivariateDerivativeFunction
   with TUnivariateIntegralFunction {
-  override val formula: String = s"($quadraticVertexA*pow(x-$quadraticVertexB,2)+$quadraticVertexC)*$logisticM / (1 + exp(-$logisticK*(x-$logisticX0))) + $quadraticVertexLogisticD"
   val quadraticVertexA: Double
   val quadraticVertexB: Double
   val quadraticVertexC: Double
-  val quadraticVertex: TQuadraticVertex = QuadraticVertex(quadraticVertexA, quadraticVertexB, quadraticVertexC)
   val logisticM: Double
   val logisticK: Double
   val logisticX0: Double
-  val logistic: TLogistic = Logistic(logisticM, logisticK, logisticX0)
   val quadraticVertexLogisticD: Double
-
+  override val formula: String = s"($quadraticVertexA*pow(x-$quadraticVertexB,2)+$quadraticVertexC)*$logisticM / (1 + exp(-$logisticK*(x-$logisticX0))) + $quadraticVertexLogisticD"
+  val quadraticVertex: TQuadraticVertex = QuadraticVertex(quadraticVertexA, quadraticVertexB, quadraticVertexC)
+  val logistic: TLogistic = Logistic(logisticM, logisticK, logisticX0)
   override def derivative(x: Double): Double = quadraticVertex.derivative(x) * logistic.value(x) + logistic.derivative(x) * quadraticVertex.value(x)
 
   /**
@@ -36,7 +35,6 @@ trait TQuadraticVertexLogistic extends TUnivariateDifferentiableFunction
     quadraticVertexA * logisticM * pow(x, 2) * log(1 + exp(logisticK * (logisticX0 - x))) / logisticK
 
   override def value(ds: DerivativeStructure): DerivativeStructure = quadraticVertex.value(ds).multiply(logistic.value(ds)).add(quadraticVertexLogisticD)
-
   override def value(x: Double): Double = logistic.value(x) * quadraticVertex.value(x) + quadraticVertexLogisticD
 
 }

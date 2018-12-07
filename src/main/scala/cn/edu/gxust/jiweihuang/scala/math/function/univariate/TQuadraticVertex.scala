@@ -10,9 +10,9 @@ import scala.math._
   * the vertex form of quadratic function of which formula is
   * {{{q(x)=a*(x-b)^2+c}}}</p>
   *
-  * {{{quadraticVertexA}}} the parameter {a} of the vertex form of quadratic function.
-  * {{{quadraticVertexB}}} the parameter {b} of the vertex form of quadratic function.
-  * {{{quadraticVertexC}}} the parameter {c} of the vertex form of quadratic function.
+  * {{{quadraticVertexA}}}:the parameter {a} of the vertex form of quadratic function.
+  * {{{quadraticVertexB}}}:the parameter {b} of the vertex form of quadratic function.
+  * {{{quadraticVertexC}}}:the parameter {c} of the vertex form of quadratic function.
   *
   * @see TQuadratic
   */
@@ -98,9 +98,7 @@ trait TQuadraticVertex extends TQuadratic {
     case _ => false
   }
 
-
   def canEqual(other: Any): Boolean = other.isInstanceOf[TQuadraticVertex]
-
 
   override def hashCode(): Int = {
     val state = Seq(quadraticVertexA, quadraticVertexB, quadraticVertexC)

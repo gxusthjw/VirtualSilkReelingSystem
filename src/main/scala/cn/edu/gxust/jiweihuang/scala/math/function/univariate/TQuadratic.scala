@@ -1,7 +1,8 @@
 package cn.edu.gxust.jiweihuang.scala.math.function.univariate
 
 /**
-  * The trait [[TQuadratic]] is used for representing quadratic function.
+  * The trait [[TQuadratic]] is used for
+  * representing quadratic function.
   *
   * @see TUnivariateDerivativeFunction
   * @see TUnivariateDifferentiableFunction
